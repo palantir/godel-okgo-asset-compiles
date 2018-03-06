@@ -39,6 +39,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/palantir/go-compiles"
+  packages = [".","cmd","compiles"]
+  revision = "4cff13a965635d2f447feefd1e095f94ee867abd"
+
+[[projects]]
+  branch = "master"
   name = "github.com/palantir/godel"
   packages = ["framework/artifactresolver","framework/builtintasks/installupdate/layout","framework/godel","framework/godellauncher","framework/internal/pathsinternal","framework/pluginapi","framework/pluginapitester","framework/plugins","framework/verifyorder","godelgetter","pkg/osarch","pkg/products"]
   revision = "23cdea0b00851e6cbdc14f50676c43ba26b47894"
@@ -112,6 +118,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "99b1531a9788bfe5a0aeccdfdc69b22a1f34eaecbe646ec7f1e1739191eb1325"
+  inputs-digest = "44b8c9bc35918eb189f70ce32ebb7ec54a3f2720bc1f54bce03eedc1a1e7be6b"
   solver-name = "gps-cdcl"
   solver-version = 1
