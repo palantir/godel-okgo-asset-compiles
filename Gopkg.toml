@@ -23,6 +23,10 @@
 required = ["github.com/palantir/go-compiles"]
 
 [[constraint]]
+  name = "github.com/palantir/go-compiles"
+  version = "1.0.0"
+
+[[constraint]]
   branch = "develop"
   name = "github.com/nmiyake/pkg"
 
