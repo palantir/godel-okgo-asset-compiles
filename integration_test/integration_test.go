@@ -15,25 +15,17 @@
 package integration_test
 
 import (
-	"bytes"
-	"io/ioutil"
-	"os"
-	"path"
-	"path/filepath"
 	"testing"
 
-	"github.com/nmiyake/pkg/dirs"
 	"github.com/nmiyake/pkg/gofiles"
-	"github.com/palantir/godel/framework/artifactresolver"
-	"github.com/palantir/godel/framework/pluginapitester"
 	"github.com/palantir/godel/pkg/products"
-	"github.com/stretchr/testify/assert"
+	"github.com/palantir/okgo/okgotester"
 	"github.com/stretchr/testify/require"
 )
 
 const (
-	okgoPluginLocator  = "com.palantir.godel:okgo-plugin:0.1.0"
-	okgoPluginResolver = "/Users/nmiyake/.m2/repository/{{GroupPath}}/{{Product}}/{{Version}}/{{Product}}-{{Version}}-{{OS}}-{{Arch}}.tgz"
+	okgoPluginLocator  = "com.palantir.okgo:okgo-plugin:0.2.0"
+	okgoPluginResolver = "https://palantir.bintray.com/releases/{{GroupPath}}/{{Product}}/{{Version}}/{{Product}}-{{Version}}-{{OS}}-{{Arch}}.tgz"
 
 	godelYML = `exclude:
   names:
@@ -44,128 +36,72 @@ const (
 `
 )
 
-func TestCompilesInProjectDir(t *testing.T) {
+func TestCompiles(t *testing.T) {
 	assetPath, err := products.Bin("compiles-asset")
 	require.NoError(t, err)
 
-	projectDir, cleanup, err := dirs.TempDir("", "")
-	require.NoError(t, err)
-	defer cleanup()
-	projectDir, err = filepath.EvalSymlinks(projectDir)
-	require.NoError(t, err)
-
-	const checkYML = ``
-
-	err = os.MkdirAll(path.Join(projectDir, "godel", "config"), 0755)
-	require.NoError(t, err)
-	err = ioutil.WriteFile(path.Join(projectDir, "godel", "config", "godel.yml"), []byte(godelYML), 0644)
-	require.NoError(t, err)
-	err = ioutil.WriteFile(path.Join(projectDir, "godel", "config", "check.yml"), []byte(checkYML), 0644)
-	require.NoError(t, err)
-
-	specs := []gofiles.GoFileSpec{
-		{
-			RelPath: "foo.go",
-			Src:     "package foo; foo",
-		},
+	configFiles := map[string]string{
+		"godel/config/godel.yml": godelYML,
+		"godel/config/check.yml": "",
 	}
 
-	_, err = gofiles.Write(projectDir, specs)
-	require.NoError(t, err)
-
-	outputBuf := &bytes.Buffer{}
-	pluginCfg := artifactresolver.LocatorWithResolverConfig{
-		Locator: artifactresolver.LocatorConfig{
-			ID: okgoPluginLocator,
-		},
-		Resolver: okgoPluginResolver,
-	}
-	pluginsParam, err := pluginCfg.ToParam()
-	require.NoError(t, err)
-
-	wd, err := os.Getwd()
-	require.NoError(t, err)
-	err = os.Chdir(projectDir)
-	require.NoError(t, err)
-	defer func() {
-		err = os.Chdir(wd)
-		require.NoError(t, err)
-	}()
-
-	runPluginCleanup, err := pluginapitester.RunAsset(pluginsParam, []string{assetPath}, "check", []string{
-		"compiles",
-	}, projectDir, false, outputBuf)
-	defer runPluginCleanup()
-	require.EqualError(t, err, "")
-
-	want := `Running compiles...
+	okgotester.RunAssetCheckTest(t,
+		okgoPluginLocator, okgoPluginResolver,
+		assetPath, "compiles",
+		[]okgotester.AssetTestCase{
+			{
+				Name: "compile error in file",
+				Specs: []gofiles.GoFileSpec{
+					{
+						RelPath: "foo.go",
+						Src:     "package foo; foo",
+					},
+				},
+				ConfigFiles: configFiles,
+				WantError:   true,
+				WantOutput: `Running compiles...
 foo.go:1:14: expected declaration, found 'IDENT' foo
 Finished compiles
-`
-	assert.Equal(t, want, outputBuf.String())
-}
-
-func TestCompilesInInnerProjectDir(t *testing.T) {
-	assetPath, err := products.Bin("compiles-asset")
-	require.NoError(t, err)
-
-	projectDir, cleanup, err := dirs.TempDir("", "")
-	require.NoError(t, err)
-	defer cleanup()
-	projectDir, err = filepath.EvalSymlinks(projectDir)
-	require.NoError(t, err)
-
-	const checkYML = ``
-
-	err = os.MkdirAll(path.Join(projectDir, "godel", "config"), 0755)
-	require.NoError(t, err)
-	err = ioutil.WriteFile(path.Join(projectDir, "godel", "config", "godel.yml"), []byte(godelYML), 0644)
-	require.NoError(t, err)
-	err = ioutil.WriteFile(path.Join(projectDir, "godel", "config", "check.yml"), []byte(checkYML), 0644)
-	require.NoError(t, err)
-
-	specs := []gofiles.GoFileSpec{
-		{
-			RelPath: "foo.go",
-			Src:     "package foo; foo",
-		},
-	}
-
-	_, err = gofiles.Write(projectDir, specs)
-	require.NoError(t, err)
-
-	outputBuf := &bytes.Buffer{}
-	pluginCfg := artifactresolver.LocatorWithResolverConfig{
-		Locator: artifactresolver.LocatorConfig{
-			ID: okgoPluginLocator,
-		},
-		Resolver: okgoPluginResolver,
-	}
-	pluginsParam, err := pluginCfg.ToParam()
-	require.NoError(t, err)
-
-	innerDir := path.Join(projectDir, "inner")
-	err = os.MkdirAll(innerDir, 0755)
-	require.NoError(t, err)
-
-	wd, err := os.Getwd()
-	require.NoError(t, err)
-	err = os.Chdir(innerDir)
-	require.NoError(t, err)
-	defer func() {
-		err = os.Chdir(wd)
-		require.NoError(t, err)
-	}()
-
-	runPluginCleanup, err := pluginapitester.RunAsset(pluginsParam, []string{assetPath}, "check", []string{
-		"compiles",
-	}, projectDir, false, outputBuf)
-	defer runPluginCleanup()
-	require.EqualError(t, err, "")
-
-	want := `Running compiles...
+`,
+			},
+			{
+				Name: "compile error in file run from inner directory",
+				Specs: []gofiles.GoFileSpec{
+					{
+						RelPath: "foo.go",
+						Src:     "package foo; foo",
+					},
+					{
+						RelPath: "inner/bar",
+					},
+				},
+				ConfigFiles: configFiles,
+				Wd:          "inner",
+				WantError:   true,
+				WantOutput: `Running compiles...
 ../foo.go:1:14: expected declaration, found 'IDENT' foo
 Finished compiles
-`
-	assert.Equal(t, want, outputBuf.String())
+`,
+			},
+			{
+				Name: "compile error in test file",
+				Specs: []gofiles.GoFileSpec{
+					{
+						RelPath: "foo.go",
+						Src:     "package foo",
+					},
+					{
+						RelPath: "foo_test.go",
+						Src:     "package foo_test; foo",
+					},
+				},
+				ConfigFiles: configFiles,
+				WantError:   true,
+				WantOutput: `Running compiles...
+foo_test.go:1:19: expected declaration, found 'IDENT' foo
+Finished compiles
+`,
+			},
+		},
+	)
 }
