@@ -21,7 +21,8 @@ import (
 	"github.com/palantir/okgo/checker"
 	"github.com/palantir/pkg/cobracli"
 
-	"github.com/palantir/godel-okgo-asset-compiles/compiles"
+	"github.com/palantir/godel-okgo-asset-compiles/compiles/config"
+	"github.com/palantir/godel-okgo-asset-compiles/compiles/creator"
 	"github.com/palantir/godel-okgo-asset-compiles/generated_src"
 )
 
@@ -32,6 +33,6 @@ func main() {
 func checkMain(osArgs []string) int {
 	os.Args = osArgs
 	var debugFlagVal bool
-	rootCmd := checker.AssetRootCmd(compiles.Creator(), "run compiles check")
+	rootCmd := checker.AssetRootCmd(creator.Compiles(), config.UpgradeConfig, "run compiles check")
 	return cobracli.ExecuteWithDefaultParamsWithVersion(rootCmd, &debugFlagVal, "")
 }
