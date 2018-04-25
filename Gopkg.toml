@@ -24,7 +24,7 @@ required = ["github.com/palantir/go-compiles"]
 
 [[constraint]]
   name = "github.com/palantir/go-compiles"
-  version = "1.0.0"
+  version = "1.1.0"
 
 [[constraint]]
   branch = "develop"
@@ -52,7 +52,7 @@ required = ["github.com/palantir/go-compiles"]
 
 [[constraint]]
   name = "github.com/spf13/cobra"
-  version = "0.0.1"
+  version = "0.0.2"
 
 [[constraint]]
   name = "github.com/stretchr/testify"
