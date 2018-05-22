@@ -12,20 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package cmd
+package amalgomated
 
 import (
-	"github.com/spf13/cobra"
+	"os"
 
-	"github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles/compiles"
+	"github.com/palantir/pkg/cobracli"
+
+	"github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles/cmd"
 )
 
-var (
-	RootCmd = &cobra.Command{
-		Use:   "compiles [flags] [packages]",
-		Short: "checks whether packages (including external tests) compiles",
-		RunE: func(cmd *cobra.Command, args []string) error {
-			return compiles.Run(args, cmd.OutOrStdout())
-		},
-	}
-)
+func AmalgomatedMain() {
+	os.Exit(cobracli.ExecuteWithDefaultParams(cmd.RootCmd))
+}

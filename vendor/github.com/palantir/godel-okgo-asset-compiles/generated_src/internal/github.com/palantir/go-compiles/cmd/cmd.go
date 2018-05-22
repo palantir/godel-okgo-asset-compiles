@@ -22,8 +22,8 @@ import (
 
 var (
 	RootCmd = &cobra.Command{
-		Use:   "compiles [flags] [packages]",
-		Short: "checks whether packages (including external tests) compiles",
+		Use:	"compiles [flags] [packages]",
+		Short:	"checks whether packages (including external tests) compiles",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return compiles.Run(args, cmd.OutOrStdout())
 		},
