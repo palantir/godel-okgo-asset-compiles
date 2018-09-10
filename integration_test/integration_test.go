@@ -66,7 +66,7 @@ func TestCheck(t *testing.T) {
 				ConfigFiles: configFiles,
 				WantError:   true,
 				WantOutput: `Running compiles...
-foo.go:1:14: expected declaration, found 'IDENT' foo
+foo.go:1:14: expected declaration, found foo
 Finished compiles
 Check(s) produced output: [compiles]
 `,
@@ -86,7 +86,7 @@ Check(s) produced output: [compiles]
 				Wd:          "inner",
 				WantError:   true,
 				WantOutput: `Running compiles...
-../foo.go:1:14: expected declaration, found 'IDENT' foo
+../foo.go:1:14: expected declaration, found foo
 Finished compiles
 Check(s) produced output: [compiles]
 `,
@@ -106,7 +106,7 @@ Check(s) produced output: [compiles]
 				ConfigFiles: configFiles,
 				WantError:   true,
 				WantOutput: `Running compiles...
-foo_test.go:1:19: expected declaration, found 'IDENT' foo
+foo_test.go:1:19: expected declaration, found foo
 Finished compiles
 Check(s) produced output: [compiles]
 `,
