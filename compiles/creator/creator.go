@@ -21,6 +21,10 @@ import (
 	"github.com/palantir/godel-okgo-asset-compiles/compiles"
 )
 
+func init() {
+	checker.SetGoBuildDefaultReleaseTags()
+}
+
 func Compiles() checker.Creator {
 	return checker.NewCreator(
 		compiles.TypeName,
