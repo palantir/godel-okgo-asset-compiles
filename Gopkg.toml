@@ -35,8 +35,12 @@ required = ["github.com/palantir/go-compiles"]
   version = "1.3.0"
 
 [[constraint]]
+  branch = "master"
+  name = "github.com/palantir/godel"
+
+[[constraint]]
   name = "github.com/palantir/okgo"
-  version = "1.2.0"
+  version = "1.0.0"
 
 [[constraint]]
   branch = "master"
