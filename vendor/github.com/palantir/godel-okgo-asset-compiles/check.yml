@@ -1,0 +1,4 @@
+packages:
+  compiles:
+    main: github.com/palantir/go-compiles
+    omit-vendor-dirs: true

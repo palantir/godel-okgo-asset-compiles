@@ -121,22 +121,6 @@
   revision = "6ef6fc2811e260af0641aae25a45881217b3cf3d"
 
 [[projects]]
-  name = "github.com/palantir/godel-okgo-asset-compiles"
-  packages = [
-    "compiles",
-    "compiles/config",
-    "compiles/config/internal/legacy",
-    "compiles/config/internal/v0",
-    "compiles/creator",
-    "generated_src",
-    "generated_src/internal/github.com/palantir/go-compiles",
-    "generated_src/internal/github.com/palantir/go-compiles/cmd",
-    "generated_src/internal/github.com/palantir/go-compiles/compiles",
-  ]
-  revision = "f874b0672e193ef6c5fa10e1e375fc260146de5d"
-  version = "v1.1.1"
-
-[[projects]]
   name = "github.com/palantir/okgo"
   packages = [
     "checker",
@@ -238,6 +222,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6618c7bcccbcf40f57dd7803a7714524092f5ed88cdcc7290c1e173a8495ddc5"
+  inputs-digest = "614f6ac7dd4418423f634238224e34390cf03ada0d3a5eaaf9d0e38fe654a477"
   solver-name = "gps-cdcl"
   solver-version = 1
