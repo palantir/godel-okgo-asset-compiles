@@ -147,6 +147,24 @@
   revision = "6ef6fc2811e260af0641aae25a45881217b3cf3d"
 
 [[projects]]
+  digest = "1:91beec4d5a0400a2aacca8277617bf2c5d5b4049b0d0c0f6c6636080e06c5ad5"
+  name = "github.com/palantir/godel-okgo-asset-compiles"
+  packages = [
+    "compiles",
+    "compiles/config",
+    "compiles/config/internal/legacy",
+    "compiles/config/internal/v0",
+    "compiles/creator",
+    "generated_src",
+    "generated_src/internal/github.com/palantir/go-compiles",
+    "generated_src/internal/github.com/palantir/go-compiles/cmd",
+    "generated_src/internal/github.com/palantir/go-compiles/compiles",
+  ]
+  pruneopts = "UT"
+  revision = "f874b0672e193ef6c5fa10e1e375fc260146de5d"
+  version = "v1.1.1"
+
+[[projects]]
   digest = "1:0b29cbfa2693c66eb778625dfcf20abbedd10b14d6f4600414405ab98ee7dcac"
   name = "github.com/palantir/okgo"
   packages = [
@@ -245,14 +263,16 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d588bba506a515d2c7743ba6f98062168c3698b2a8cefe5a99e15d9ee8885e40"
+  digest = "1:dbf9f37c31b0014a2ed4e0691e5bccc4c680500b0e37197d98339fdf7c8e33da"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
+    "go/buildutil",
     "go/gcexportdata",
     "go/internal/cgo",
     "go/internal/gcimporter",
     "go/internal/packagesdriver",
+    "go/loader",
     "go/packages",
     "go/types/typeutil",
     "internal/fastwalk",
@@ -285,6 +305,15 @@
     "github.com/nmiyake/pkg/gofiles",
     "github.com/palantir/amalgomate/amalgomated",
     "github.com/palantir/go-compiles",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles/config",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles/config/internal/legacy",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles/config/internal/v0",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles/creator",
+    "github.com/palantir/godel-okgo-asset-compiles/generated_src",
+    "github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles",
+    "github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles/cmd",
+    "github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles/compiles",
     "github.com/palantir/godel/framework/pluginapitester",
     "github.com/palantir/godel/pkg/products/v2/products",
     "github.com/palantir/godel/pkg/versionedconfig",
