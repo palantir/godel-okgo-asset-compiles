@@ -15,9 +15,6 @@
 package creator
 
 import (
-	"io"
-	"strings"
-
 	"github.com/palantir/okgo/checker"
 	"github.com/palantir/okgo/okgo"
 
@@ -29,43 +26,17 @@ func Compiles() checker.Creator {
 		compiles.TypeName,
 		compiles.Priority,
 		func(cfgYML []byte) (okgo.Checker, error) {
-			return &wrappedChecker{
-				checker: checker.NewAmalgomatedChecker(compiles.TypeName, checker.ParamPriority(compiles.Priority),
-					checker.ParamLineParserWithWd(
-						func(line, wd string) okgo.Issue {
-							if line == "-: " {
-								// skip lines that have empty output
-								return okgo.Issue{}
-							}
-							return okgo.NewIssueFromLine(line, wd)
-						},
-					),
+			return checker.NewAmalgomatedChecker(compiles.TypeName, checker.ParamPriority(compiles.Priority),
+				checker.ParamLineParserWithWd(
+					func(line, wd string) okgo.Issue {
+						if line == "-: " {
+							// skip lines that have empty output
+							return okgo.Issue{}
+						}
+						return okgo.NewIssueFromLine(line, wd)
+					},
 				),
-			}, nil
+			), nil
 		},
 	)
-}
-
-type wrappedChecker struct {
-	checker okgo.Checker
-}
-
-func (w *wrappedChecker) Type() (okgo.CheckerType, error) {
-	return w.checker.Type()
-}
-
-func (w *wrappedChecker) Priority() (okgo.CheckerPriority, error) {
-	return w.checker.Priority()
-}
-
-func (w *wrappedChecker) Check(pkgPaths []string, projectDir string, stdout io.Writer) {
-	// trim "./" prefixes to support package path formats for Go modules
-	for i := range pkgPaths {
-		pkgPaths[i] = strings.TrimPrefix(pkgPaths[i], "./")
-	}
-	w.checker.Check(pkgPaths, projectDir, stdout)
-}
-
-func (w *wrappedChecker) RunCheckCmd(args []string, stdout io.Writer) {
-	w.checker.RunCheckCmd(args, stdout)
 }
