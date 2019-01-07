@@ -101,7 +101,7 @@
   version = "1.3.0"
 
 [[projects]]
-  digest = "1:a3fd120f665622f2c90c08ad0f0c44d73ad87f26c2a27b78a68f2098f41bc778"
+  digest = "1:ad1701848d3b241fad9a7089f5681e8764912134fe5e46dddf01c391ae39022f"
   name = "github.com/palantir/go-compiles"
   packages = [
     ".",
@@ -109,8 +109,8 @@
     "compiles",
   ]
   pruneopts = "UT"
-  revision = "508fc23479bb8573cc037aeb50ab606ab3a112e7"
-  version = "v1.1.1"
+  revision = "5a40915d80f6430054ced7415bf006e0d0b6dd70"
+  version = "v1.2.0"
 
 [[projects]]
   branch = "master"
@@ -245,15 +245,22 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3bb904aa43844ed7773faff747e121d8ff37c32c552f8c88f107160831d32f59"
+  digest = "1:d588bba506a515d2c7743ba6f98062168c3698b2a8cefe5a99e15d9ee8885e40"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
-    "go/buildutil",
-    "go/loader",
+    "go/gcexportdata",
+    "go/internal/cgo",
+    "go/internal/gcimporter",
+    "go/internal/packagesdriver",
+    "go/packages",
+    "go/types/typeutil",
+    "internal/fastwalk",
+    "internal/gopathwalk",
+    "internal/semver",
   ]
   pruneopts = "UT"
-  revision = "059bec968c61383b574810040ba9410712de36c5"
+  revision = "d00ac6d27372a4273825635281f2dc360d4be563"
 
 [[projects]]
   digest = "1:c4b907986044810b1542df64faf968e8b1c235113f26b06f16a1c86e0d6a48f8"
@@ -288,7 +295,7 @@
     "github.com/pkg/errors",
     "github.com/spf13/cobra",
     "github.com/stretchr/testify/require",
-    "golang.org/x/tools/go/loader",
+    "golang.org/x/tools/go/packages",
     "gopkg.in/yaml.v2",
   ]
   solver-name = "gps-cdcl"
