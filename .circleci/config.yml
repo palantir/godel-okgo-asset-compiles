@@ -1,6 +1,11 @@
 owner-repo: &owner-repo
   owner-repo: palantir/godel-okgo-asset-compiles
 
+excutor: &executor
+  executor:
+    name: go/golang-1_11
+    <<: *owner-repo
+
 version: 2.1
 
 orbs:
@@ -9,28 +14,20 @@ orbs:
 
 workflows:
   version: 2
-  verify-test:
+  verify-test-dist-publish:
     jobs:
       - godel/verify:
           name: verify
-          executor:
-            name: go/golang-1_11
-            <<: *owner-repo
+          <<: *executor
       - godel/test:
           name: test
-          executor:
-            name: go/golang-1_11
-            <<: *owner-repo
+          <<: *executor
       - godel/dist:
           name: dist
-          executor:
-            name: go/golang-1_11
-            <<: *owner-repo
+          <<: *executor
       - godel/bintray-publish:
           name: publish
-          executor:
-            name: go/golang-1_11
-            <<: *owner-repo
+          <<: *executor
           bintray-subject: palantir
           bintray-repo: releases
           bintray-product: godel-okgo-asset-compiles
