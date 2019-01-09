@@ -12,6 +12,11 @@ orbs:
   go: palantir/go@0.0.5
   godel: palantir/godel@0.0.2
 
+all-tags-filter: &all-tags-filter
+  filters:
+    tags:
+      only: /.*/
+
 workflows:
   version: 2
   verify-test-dist-publish:
@@ -19,12 +24,15 @@ workflows:
       - godel/verify:
           name: verify
           <<: *executor
+          <<: *all-tags-filter
       - godel/test:
           name: test
           <<: *executor
+          <<: *all-tags-filter
       - godel/dist:
           name: dist
           <<: *executor
+          <<: *all-tags-filter
       - godel/bintray-publish:
           name: publish
           <<: *executor
