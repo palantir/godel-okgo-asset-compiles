@@ -5,6 +5,7 @@ excutor: &executor
   executor:
     name: go/darwin-linux-no-cgo
     <<: *owner-repo
+    module: false
 
 version: 2.1
 
