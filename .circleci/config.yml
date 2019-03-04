@@ -43,7 +43,7 @@ workflows:
           bintray-repo: releases
           bintray-product: godel-okgo-asset-compiles
           requires:
-            - verify
+#            - verify
             - test
             - dist
           filters:
