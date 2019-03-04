@@ -22,12 +22,11 @@ workflows:
   version: 2
   verify-test-dist-publish:
     jobs:
-      # disable for now to allow building and publishing with Go 1.12
-#      - godel/verify:
-#          name: verify
-#          <<: *executor
-#          <<: *all-tags-filter
-#          mod-cache: false
+      - godel/verify:
+          name: verify
+          <<: *executor
+          <<: *all-tags-filter
+          mod-cache: false
       - godel/test:
           name: test
           <<: *executor
@@ -43,7 +42,7 @@ workflows:
           bintray-repo: releases
           bintray-product: godel-okgo-asset-compiles
           requires:
-#            - verify
+            - verify
             - test
             - dist
           filters:

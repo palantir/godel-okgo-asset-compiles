@@ -23,7 +23,7 @@ import (
 
 	"github.com/palantir/godel-okgo-asset-compiles/compiles/config"
 	"github.com/palantir/godel-okgo-asset-compiles/compiles/creator"
-	"github.com/palantir/godel-okgo-asset-compiles/generated_src"
+	amalgomatedcheck "github.com/palantir/godel-okgo-asset-compiles/generated_src"
 )
 
 func main() {
