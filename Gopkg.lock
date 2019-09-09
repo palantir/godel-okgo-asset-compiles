@@ -101,7 +101,7 @@
   version = "1.3.0"
 
 [[projects]]
-  digest = "1:ad1701848d3b241fad9a7089f5681e8764912134fe5e46dddf01c391ae39022f"
+  digest = "1:5a0713a6d4ada5dd7d89a2ac703125ae69b9215e684a5598987a9e031f1006b4"
   name = "github.com/palantir/go-compiles"
   packages = [
     ".",
@@ -109,8 +109,8 @@
     "compiles",
   ]
   pruneopts = "UT"
-  revision = "5a40915d80f6430054ced7415bf006e0d0b6dd70"
-  version = "v1.2.0"
+  revision = "aa84b861191e50ffa986409001954281c523a1f8"
+  version = "v1.3.0"
 
 [[projects]]
   branch = "master"
@@ -245,12 +245,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d588bba506a515d2c7743ba6f98062168c3698b2a8cefe5a99e15d9ee8885e40"
+  digest = "1:220d16eead060183a2309db37a4dec2cf2d749de8bc635d3941546b388d5e2bd"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
     "go/gcexportdata",
-    "go/internal/cgo",
     "go/internal/gcimporter",
     "go/internal/packagesdriver",
     "go/packages",
@@ -260,7 +259,7 @@
     "internal/semver",
   ]
   pruneopts = "UT"
-  revision = "d00ac6d27372a4273825635281f2dc360d4be563"
+  revision = "0673112484210f23155c2a43af63b23fc7762655"
 
 [[projects]]
   digest = "1:c4b907986044810b1542df64faf968e8b1c235113f26b06f16a1c86e0d6a48f8"
