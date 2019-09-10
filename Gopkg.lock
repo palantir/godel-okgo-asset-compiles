@@ -147,6 +147,24 @@
   revision = "6ef6fc2811e260af0641aae25a45881217b3cf3d"
 
 [[projects]]
+  digest = "1:0ffdcf0c2653677c5c22353538fe4cb1d60dae32896ae493fe42d7f406b2f31a"
+  name = "github.com/palantir/godel-okgo-asset-compiles"
+  packages = [
+    "compiles",
+    "compiles/config",
+    "compiles/config/internal/legacy",
+    "compiles/config/internal/v0",
+    "compiles/creator",
+    "generated_src",
+    "generated_src/internal/github.com/palantir/go-compiles",
+    "generated_src/internal/github.com/palantir/go-compiles/cmd",
+    "generated_src/internal/github.com/palantir/go-compiles/compiles",
+  ]
+  pruneopts = "UT"
+  revision = "54413a03f702085f519bf4ddcad32c09b0b54efd"
+  version = "v1.4.0"
+
+[[projects]]
   digest = "1:0b29cbfa2693c66eb778625dfcf20abbedd10b14d6f4600414405ab98ee7dcac"
   name = "github.com/palantir/okgo"
   packages = [
@@ -284,6 +302,15 @@
     "github.com/nmiyake/pkg/gofiles",
     "github.com/palantir/amalgomate/amalgomated",
     "github.com/palantir/go-compiles",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles/config",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles/config/internal/legacy",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles/config/internal/v0",
+    "github.com/palantir/godel-okgo-asset-compiles/compiles/creator",
+    "github.com/palantir/godel-okgo-asset-compiles/generated_src",
+    "github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles",
+    "github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles/cmd",
+    "github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles/compiles",
     "github.com/palantir/godel/framework/pluginapitester",
     "github.com/palantir/godel/pkg/products/v2/products",
     "github.com/palantir/godel/pkg/versionedconfig",
