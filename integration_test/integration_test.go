@@ -59,6 +59,10 @@ func TestCheck(t *testing.T) {
 				Name: "compile error in file",
 				Specs: []gofiles.GoFileSpec{
 					{
+						RelPath: "go.mod",
+						Src:     "module foo",
+					},
+					{
 						RelPath: "foo.go",
 						Src:     "package foo; foo",
 					},
@@ -74,6 +78,10 @@ Check(s) produced output: [compiles]
 			{
 				Name: "compile error in file run from inner directory",
 				Specs: []gofiles.GoFileSpec{
+					{
+						RelPath: "go.mod",
+						Src:     "module foo",
+					},
 					{
 						RelPath: "foo.go",
 						Src:     "package foo; foo",
@@ -94,6 +102,10 @@ Check(s) produced output: [compiles]
 			{
 				Name: "compile error in test file",
 				Specs: []gofiles.GoFileSpec{
+					{
+						RelPath: "go.mod",
+						Src:     "module foo",
+					},
 					{
 						RelPath: "foo.go",
 						Src:     "package foo",
