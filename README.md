@@ -1,3 +1,7 @@
+<p align="right">
+<a href="https://autorelease.general.dmz.palantir.tech/palantir/godel-okgo-asset-compiles"><img src="https://img.shields.io/badge/Perform%20an-Autorelease-success.svg" alt="Autorelease"></a>
+</p>
+
 godel-okgo-asset-compiles
 =========================
 godel-okgo-asset-compiles is an asset for the gödel [okgo plugin](https://github.com/palantir/okgo). It provides the 
