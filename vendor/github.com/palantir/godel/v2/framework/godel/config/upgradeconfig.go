@@ -12,12 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package v0
+package config
 
 import (
+	"github.com/pkg/errors"
+
+	v0 "github.com/palantir/godel/v2/framework/godel/config/internal/v0"
 	"github.com/palantir/godel/v2/pkg/versionedconfig"
 )
 
 func UpgradeConfig(cfgBytes []byte) ([]byte, error) {
-	return versionedconfig.ConfigNotSupported("compiles-asset", cfgBytes)
+	// legacy configuration is fully compatible with 2.0 configuration so no need to migrate. Configuration for godel is
+	// also special because it has already been loaded by the time the program is run.
+	version, err := versionedconfig.ConfigVersion(cfgBytes)
+	if err != nil {
+		return nil, err
+	}
+	switch version {
+	case "", "0":
+		return v0.UpgradeConfig(cfgBytes)
+	default:
+		return nil, errors.Errorf("unsupported version: %s", version)
+	}
 }

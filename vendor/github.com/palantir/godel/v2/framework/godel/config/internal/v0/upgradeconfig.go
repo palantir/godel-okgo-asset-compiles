@@ -15,9 +15,14 @@
 package v0
 
 import (
-	"github.com/palantir/godel/v2/pkg/versionedconfig"
+	"github.com/pkg/errors"
+	"gopkg.in/yaml.v2"
 )
 
 func UpgradeConfig(cfgBytes []byte) ([]byte, error) {
-	return versionedconfig.ConfigNotSupported("compiles-asset", cfgBytes)
+	var cfg GodelConfig
+	if err := yaml.Unmarshal(cfgBytes, &cfg); err != nil {
+		return nil, errors.Wrapf(err, "failed to unmarshal godel v0 configuration")
+	}
+	return cfgBytes, nil
 }
