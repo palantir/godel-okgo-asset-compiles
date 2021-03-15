@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sort"
 
-	compiles "github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles"
+	compiles "."
 )
 
 var programs = map[string]func(){"compiles": func() {
