@@ -27,8 +27,8 @@ import (
 // from the current working directory. Dot expansion ("...") is not supported.
 func Run(pkgs []string, w io.Writer) error {
 	loadedPkgs, err := packages.Load(&packages.Config{
-		Mode:	packages.LoadAllSyntax,
-		Tests:	true,
+		Mode:  packages.LoadAllSyntax,
+		Tests: true,
 	}, pkgs...)
 	if err != nil {
 		return errors.Wrapf(err, "failed to load packages")
