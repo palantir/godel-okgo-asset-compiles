@@ -15,10 +15,9 @@
 package creator
 
 import (
+	"github.com/palantir/godel-okgo-asset-compiles/compiles"
 	"github.com/palantir/okgo/checker"
 	"github.com/palantir/okgo/okgo"
-
-	"github.com/palantir/godel-okgo-asset-compiles/compiles"
 )
 
 func Compiles() checker.Creator {
