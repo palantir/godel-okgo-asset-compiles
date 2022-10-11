@@ -10,7 +10,7 @@ require (
 	github.com/palantir/okgo v1.8.0
 	github.com/palantir/pkg/cobracli v1.2.0
 	github.com/pkg/errors v0.8.1
-	github.com/spf13/cobra v1.5.0
+	github.com/spf13/cobra v1.6.0
 	github.com/stretchr/testify v1.8.0
 	golang.org/x/tools v0.1.5
 	gopkg.in/yaml.v2 v2.4.0
@@ -28,7 +28,7 @@ require (
 	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/google/go-github v15.0.0+incompatible // indirect
 	github.com/google/go-querystring v0.0.0-20170111101155-53e6ce116135 // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/kardianos/osext v0.0.0-20170510131534-ae77be60afb1 // indirect
 	github.com/klauspost/compress v1.9.2 // indirect
 	github.com/klauspost/pgzip v1.2.1 // indirect
