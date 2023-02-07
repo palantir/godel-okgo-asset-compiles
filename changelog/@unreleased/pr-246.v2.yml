@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: Updates go version used to build asset to 1.20.
+  links:
+  - https://github.com/palantir/godel-okgo-asset-compiles/pull/246
