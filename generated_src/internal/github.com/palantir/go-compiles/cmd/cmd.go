@@ -15,10 +15,9 @@
 package cmd
 
 import (
+	"github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles/compiles"
 	"github.com/palantir/pkg/cobracli"
 	"github.com/spf13/cobra"
-
-	"github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles/compiles"
 )
 
 var (
