@@ -1,0 +1,21 @@
+./godelw verify failed after updating godel plugins and assets
+
+Command that caused error:
+./godelw verify --skip-test --skip-check
+
+Output:
+Running format...
+Running mod...
+go: downloading github.com/palantir/go-compiles v1.14.0
+go: downloading github.com/palantir/amalgomate v1.31.0
+go: downloading golang.org/x/tools v0.11.0
+github.com/palantir/godel-okgo-asset-compiles imports
+	github.com/palantir/amalgomate/amalgomated: github.com/palantir/amalgomate@v1.31.0: read "https:/proxy.golang.org/@v/v1.31.0.zip": read tcp 172.26.64.27:40128->142.251.40.241:443: read: connection timed out
+github.com/palantir/godel-okgo-asset-compiles/generated_src/internal/github.com/palantir/go-compiles/compiles imports
+	golang.org/x/tools/go/packages: golang.org/x/tools@v0.11.0: read "https:/proxy.golang.org/@v/v0.11.0.zip": stream error: stream ID 5; NO_ERROR; received from peer
+github.com/palantir/godel-okgo-asset-compiles/tools imports
+	github.com/palantir/go-compiles: github.com/palantir/go-compiles@v1.14.0: Get "https://proxy.golang.org/github.com/palantir/go-compiles/@v/v1.14.0.zip": read tcp 172.26.64.27:40128->142.251.40.241:443: read: connection timed out
+Running amalgomate...
+Running license...
+Failed tasks:
+	mod
