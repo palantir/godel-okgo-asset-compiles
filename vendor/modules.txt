@@ -75,8 +75,8 @@ github.com/palantir/amalgomate/amalgomated
 github.com/palantir/go-compiles
 github.com/palantir/go-compiles/cmd
 github.com/palantir/go-compiles/compiles
-# github.com/palantir/godel/v2 v2.89.0
-## explicit; go 1.20
+# github.com/palantir/godel/v2 v2.91.0
+## explicit; go 1.21
 github.com/palantir/godel/v2/framework/artifactresolver
 github.com/palantir/godel/v2/framework/builtintasks
 github.com/palantir/godel/v2/framework/builtintasks/githooks
@@ -101,8 +101,8 @@ github.com/palantir/godel/v2/godelgetter
 github.com/palantir/godel/v2/pkg/osarch
 github.com/palantir/godel/v2/pkg/products
 github.com/palantir/godel/v2/pkg/versionedconfig
-# github.com/palantir/okgo v1.39.0
-## explicit; go 1.20
+# github.com/palantir/okgo v1.40.0
+## explicit; go 1.21
 github.com/palantir/okgo/checker
 github.com/palantir/okgo/okgo
 github.com/palantir/okgo/okgotester
