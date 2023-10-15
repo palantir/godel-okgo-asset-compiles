@@ -4,10 +4,10 @@ go 1.21
 
 require (
 	github.com/nmiyake/pkg/gofiles v1.2.0
-	github.com/palantir/amalgomate v1.33.0
+	github.com/palantir/amalgomate v1.34.0
 	github.com/palantir/go-compiles v1.17.0
 	github.com/palantir/godel/v2 v2.93.0
-	github.com/palantir/okgo v1.40.0
+	github.com/palantir/okgo v1.41.0
 	github.com/palantir/pkg/cobracli v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/cobra v1.7.0
