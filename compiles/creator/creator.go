@@ -21,9 +21,10 @@ import (
 )
 
 func Compiles() checker.Creator {
-	return checker.NewCreator(
+	return checker.NewCreatorWithMultiCPU(
 		compiles.TypeName,
 		compiles.Priority,
+		compiles.MultiCPU,
 		func(cfgYML []byte) (okgo.Checker, error) {
 			return checker.NewAmalgomatedChecker(compiles.TypeName, checker.ParamPriority(compiles.Priority),
 				checker.ParamLineParserWithWd(

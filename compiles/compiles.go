@@ -21,4 +21,5 @@ import (
 const (
 	TypeName okgo.CheckerType     = "compiles"
 	Priority okgo.CheckerPriority = 0
+	MultiCPU okgo.CheckerMultiCPU = true
 )
