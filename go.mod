@@ -7,7 +7,7 @@ require (
 	github.com/palantir/amalgomate v1.38.0
 	github.com/palantir/go-compiles v1.21.0
 	github.com/palantir/godel/v2 v2.101.0
-	github.com/palantir/okgo v1.48.0
+	github.com/palantir/okgo v1.50.0
 	github.com/palantir/pkg/cobracli v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/cobra v1.8.0
