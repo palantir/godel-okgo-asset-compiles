@@ -6,11 +6,11 @@ require (
 	github.com/nmiyake/pkg/gofiles v1.2.0
 	github.com/palantir/amalgomate v1.41.0
 	github.com/palantir/go-compiles v1.24.0
-	github.com/palantir/godel/v2 v2.109.0
+	github.com/palantir/godel/v2 v2.110.0
 	github.com/palantir/okgo v1.55.0
 	github.com/palantir/pkg/cobracli v1.2.0
 	github.com/pkg/errors v0.9.1
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.8.1
 	github.com/stretchr/testify v1.9.0
 	golang.org/x/tools v0.22.0
 	gopkg.in/yaml.v2 v2.4.0
