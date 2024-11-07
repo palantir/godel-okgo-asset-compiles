@@ -43,10 +43,12 @@ workflows:
       - go-jobs/godel_build:
           name: "build"
           executor: "standard-executor"
+          mod_cache_key_prefix: "v2-{{ .Environment.CIRCLE_WORKFLOW_ID }}"
           <<: *all-tags-filter
       - go-jobs/godel_verify:
           name: "verify"
           executor: "standard-executor"
+          mod_cache_key_prefix: "v2-{{ .Environment.CIRCLE_WORKFLOW_ID }}"
           skip_tests: true
           requires:
             - build
@@ -54,12 +56,14 @@ workflows:
       - go-jobs/godel_test:
           name: "test"
           executor: "standard-executor"
+          mod_cache_key_prefix: "v2-{{ .Environment.CIRCLE_WORKFLOW_ID }}"
           requires:
             - build
           <<: *all-tags-filter
       - go-jobs/godel_dist:
           name: "dist"
           executor: "standard-executor"
+          mod_cache_key_prefix: "v2-{{ .Environment.CIRCLE_WORKFLOW_ID }}"
           requires:
             - build
           <<: *all-tags-filter
