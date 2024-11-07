@@ -164,7 +164,7 @@ orbs:
               The location of the Go cache directory.
             type: string
           mod_cache_key_prefix:
-            default: v1
+            default: v2
             description: |
               The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
               invalidate the cache.
@@ -353,7 +353,7 @@ orbs:
               Used to persist build outputs so that later steps that use the outputs don't have to recreate them.
             type: string
           mod_cache_key_prefix:
-            default: v1
+            default: v2
             description: |
               The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
               invalidate the cache.
@@ -510,7 +510,7 @@ orbs:
               The location of the Go cache directory.
             type: string
           mod_cache_key_prefix:
-            default: v1
+            default: v2
             description: |
               The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
               invalidate the cache.
@@ -679,7 +679,7 @@ orbs:
               The location of the Go cache directory.
             type: string
           mod_cache_key_prefix:
-            default: v1
+            default: v2
             description: |
               The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
               invalidate the cache.
