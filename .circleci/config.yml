@@ -5,7 +5,7 @@
 version: 2.1
 
 orbs:
-  go-jobs: palantir/go-jobs@0.3.0
+  go-jobs: palantir/go-jobs@0.4.0
 
 image-version: &image-version "cimg/go:1.23.2-browsers"
 
@@ -43,12 +43,10 @@ workflows:
       - go-jobs/godel_build:
           name: "build"
           executor: "standard-executor"
-          mod_cache_key_prefix: "v2-{{ .Environment.CIRCLE_WORKFLOW_ID }}"
           <<: *all-tags-filter
       - go-jobs/godel_verify:
           name: "verify"
           executor: "standard-executor"
-          mod_cache_key_prefix: "v2-{{ .Environment.CIRCLE_WORKFLOW_ID }}"
           skip_tests: true
           requires:
             - build
@@ -56,14 +54,12 @@ workflows:
       - go-jobs/godel_test:
           name: "test"
           executor: "standard-executor"
-          mod_cache_key_prefix: "v2-{{ .Environment.CIRCLE_WORKFLOW_ID }}"
           requires:
             - build
           <<: *all-tags-filter
       - go-jobs/godel_dist:
           name: "dist"
           executor: "standard-executor"
-          mod_cache_key_prefix: "v2-{{ .Environment.CIRCLE_WORKFLOW_ID }}"
           requires:
             - build
           <<: *all-tags-filter
