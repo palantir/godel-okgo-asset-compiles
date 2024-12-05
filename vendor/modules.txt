@@ -68,11 +68,11 @@ github.com/nmiyake/pkg/gofiles
 # github.com/nwaples/rardecode v1.1.0
 ## explicit
 github.com/nwaples/rardecode
-# github.com/palantir/amalgomate v1.47.0
+# github.com/palantir/amalgomate v1.48.0
 ## explicit; go 1.23.0
 github.com/palantir/amalgomate/amalgomated
-# github.com/palantir/go-compiles v1.26.0
-## explicit; go 1.21
+# github.com/palantir/go-compiles v1.27.0
+## explicit; go 1.23.0
 github.com/palantir/go-compiles
 github.com/palantir/go-compiles/cmd
 github.com/palantir/go-compiles/compiles
