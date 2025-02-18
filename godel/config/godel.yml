@@ -22,3 +22,14 @@ exclude:
     - generated_src
   paths:
     - godel
+default-tasks:
+  resolvers:
+    - https://artifactory.palantir.build/artifactory/internal-dist-release/{{GroupPath}}/{{Product}}/{{Version}}/{{Product}}-{{Version}}-{{OS}}-{{Arch}}.tgz
+    - https://artifactory.palantir.build/artifactory/internal-dist-sandbox/{{GroupPath}}/{{Product}}/{{Version}}/{{Product}}-{{Version}}-{{OS}}-{{Arch}}.tgz
+    - https://artifactory.palantir.build/artifactory/internal-dist-thirdparty/{{GroupPath}}/{{Product}}/{{Version}}/{{Product}}-{{Version}}-{{OS}}-{{Arch}}.tgz
+  tasks:
+    com.palantir.okgo:check-plugin:
+      exclude-all-default-assets: true
+      assets:
+        - locator:
+            id: com.palantir.godel-okgo-asset-compiles:compiles-asset:1.53.0-48-g8551565
