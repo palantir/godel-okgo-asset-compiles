@@ -28,5 +28,7 @@ default-tasks:
       exclude-default-assets:
         - com.palantir.godel-okgo-asset-compiles:compiles-asset
         - com.palantir.godel-okgo-asset-deadcode:deadcode-asset
+        - com.palantir.godel-okgo-asset-errcheck:errcheck-asset
+        - com.palantir.godel-okgo-asset-outparamcheck:outparamcheck-asset
         - com.palantir.godel-okgo-asset-unconvert:unconvert-asset
         - com.palantir.godel-okgo-asset-varcheck:varcheck-asset
