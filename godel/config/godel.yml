@@ -25,4 +25,8 @@ exclude:
 default-tasks:
   tasks:
     com.palantir.okgo:check-plugin:
-      exclude-all-default-assets: true
+      exclude-default-assets:
+        - com.palantir.godel-okgo-asset-compiles:compiles-asset
+      assets:
+        - locator:
+            id: com.palantir.godel-okgo-asset-compiles:compiles-asset:1.54.0
