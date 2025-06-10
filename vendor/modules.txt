@@ -76,7 +76,7 @@ github.com/palantir/amalgomate/amalgomated
 github.com/palantir/go-compiles
 github.com/palantir/go-compiles/cmd
 github.com/palantir/go-compiles/compiles
-# github.com/palantir/godel/v2 v2.132.0
+# github.com/palantir/godel/v2 v2.133.0
 ## explicit; go 1.24.0
 github.com/palantir/godel/v2/framework/artifactresolver
 github.com/palantir/godel/v2/framework/builtintasks
