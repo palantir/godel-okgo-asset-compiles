@@ -6,7 +6,7 @@ require (
 	github.com/nmiyake/pkg/gofiles v1.2.0
 	github.com/palantir/amalgomate v1.50.0
 	github.com/palantir/go-compiles v1.28.0
-	github.com/palantir/godel/v2 v2.133.0
+	github.com/palantir/godel/v2 v2.134.0
 	github.com/palantir/okgo v1.63.0
 	github.com/palantir/pkg/cobracli v1.2.0
 	github.com/pkg/errors v0.9.1
@@ -42,7 +42,7 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.2 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
-	github.com/spf13/pflag v1.0.6 // indirect
+	github.com/spf13/pflag v1.0.7 // indirect
 	github.com/ulikunitz/xz v0.5.10 // indirect
 	github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8 // indirect
 	golang.org/x/mod v0.26.0 // indirect
